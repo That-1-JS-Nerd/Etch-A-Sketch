@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles.css">
+    <title>Etch A Sketch</title>
+</head>
+<body>
+
+    <div class="sidebar">
+        <div class="header">
+            <h1 class="title">Etch-A-Sketch</h1>
+            <button class="btn popup">Grid options</button>  
+        </div>
+    </div>
+    <div class="container">
+        <div class="grid-container"></div>
+    </div>
+    <div class="overlay"></div>
+    <div class="modal">
+        <h1>Resize Grid</h1>
+        <button id="select-black" class="btn-primary">Black</button>
+        <button id="grid-btn" class="btn-primary">grid background-color</button>
+        <button id="select-rgb" class="btn-primary">Random colors</button>
+        <button id="shade" class="btn-primary">Shade</button>
+        <button id="eraser" class="btn-primary">Eraser</button>
+        <button id="toggle-gridlines" class="btn-primary">Grid lines</button>
+        <div class="slider-container">
+            <input type="range" min="8" max="64" class="slider" value="8" id="rangeSlider">
+        </div>
+        <p>Grid size: <span class="output"></span></p>
+        <button class="btn modal-close">Close</button>
+    </div>
+    <script src="./main.js"></script>
+</body>
+</html>
