@@ -14,7 +14,6 @@ const eraserBtn = document.querySelector('#eraser');
 
 const parentWidth = 620;
 const parentHeight = 620;
-const markedCells = [];
 
 let gridBackground;
 let gridEnabled = false;
@@ -99,12 +98,11 @@ function main(arg) {
         for (const node of parent.childNodes) {
             
             node.addEventListener('mouseover', (e) => {
-                if (markedCells.indexOf(node) !== -1) console.log("Exists");
                 const R = Math.floor(Math.random() * 255);
                 const G = Math.floor(Math.random() * 255);
                 const B = Math.floor(Math.random() * 255);
                 e.target.style.backgroundColor = `rgb(${R}, ${G}, ${B})`;
-                markedCells.push(e.target);
+                
             });
         }
             break;
