@@ -43,6 +43,17 @@ gridBtn.addEventListener('click', () => {
     reset();
 });
 
+function filter(rgb) {
+    const filtered = rgb.split(',');
+    const intArr = [];
+    
+    for (let i = 0; i < filtered.length; i++) {
+        filtered[i].replace(/[a-z()]/ig, '');
+        intArr.push(parseInt(filtered[i]));
+    }
+    return intArr;
+}
+
 function reset() {
     parent.innerHTML = '';
     createGrid();
@@ -82,7 +93,11 @@ function draw(arg) {
             colorRGB.addEventListener('click', () => rgbEnabled = true);
             for (const node of parent.childNodes) {
                 node.addEventListener('mouseover', (e) => {
-                    const [R, G, B] = [...getRGB()];
+                    const [
+                        R,
+                        G,
+                        B
+                    ] = [...getRGB()];
                     currentColor = `rgb(${R}, ${G}, ${B})`;
                     e.target.style.backgroundColor = currentColor;
                 });
@@ -93,6 +108,11 @@ function draw(arg) {
             
             for (const node of parent.childNodes) {
                 node.addEventListener('mouseover', (e) => {
+                    const [
+                        R,
+                        G,
+                        B
+                    ] = [...filter(e.target.style.backgroundColor)];
                     let current = dStep;
                     dStep += 0.1;
                     node.style.backgroundColor = `rgba(${R}, ${G}, ${B}, ${dStep - current})`;
@@ -110,6 +130,7 @@ function createGrid() {
 
     for (let i = 0; i < cellCount; i++) {
         const cell = document.createElement('div');
+        cell.style.backgroundColor = 'rgb(255, 255, 255)';
         if (!gridEnabled) { cell.classList.add('cell-border'); }
         else { cell.classList.remove('cell-border'); }
         cells.push(cell);
