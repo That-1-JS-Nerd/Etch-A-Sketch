@@ -74,44 +74,6 @@ function getRGB() {
     }
 }
 
-function draw(arg) {
-    
-    switch (arg) {
-        case "rgb(0, 0, 0)":
-            for (const node of parent.childNodes) {
-                node.addEventListener('mouseover', (e) => {
-                    currentColor = arg;
-                    e.target.style.backgroundColor = currentColor;
-                });
-            }
-            break;
-        case "rgb(255, 255, 255)":
-            for (const node of parent.childNodes) {
-                node.addEventListener('mouseover', (e) => {
-                    currentColor = arg;
-                    e.target.style.backgroundColor = currentColor;
-                });
-            }
-            break;
-        case "rgb": // Random RGB
-            colorRGB.addEventListener('click', () => rgbEnabled = true);
-            for (const node of parent.childNodes) {
-                node.addEventListener('mouseover', (e) => {
-                    const [
-                        R,
-                        G,
-                        B
-                    ] = [...getRGB()];
-                    currentColor = `rgb(${R}, ${G}, ${B})`;
-                    e.target.style.backgroundColor = currentColor;
-                });
-            }
-            break;
-        default:
-            return;
-    }
-}
-
 function createGrid() {
     const cells = [];
     const cellCount = slider.value ** 2;
