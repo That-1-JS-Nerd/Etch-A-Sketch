@@ -65,15 +65,6 @@ function reset() {
     createGrid();
 }
 
-function getRGB() {
-    for (;;) {
-        const R = Math.floor(Math.random() * 255);
-        const G = Math.floor(Math.random() * 255);
-        const B = Math.floor(Math.random() * 255);
-        return [R, G, B];
-    }
-}
-
 function createGrid() {
     const cells = [];
     const cellCount = slider.value ** 2;
