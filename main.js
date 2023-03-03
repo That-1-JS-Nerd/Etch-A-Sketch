@@ -91,16 +91,14 @@ function main(arg) {
             }
             break;
         case "rgb": // RGB
-        for (const node of parent.childNodes) {
-            
-            node.addEventListener('mouseover', (e) => {
-                const R = Math.floor(Math.random() * 255);
-                const G = Math.floor(Math.random() * 255);
-                const B = Math.floor(Math.random() * 255);
-                e.target.style.backgroundColor = `rgb(${R}, ${G}, ${B})`;
-                
-            });
-        }
+            for (const node of parent.childNodes) {
+                node.addEventListener('mouseover', (e) => {
+                    const R = Math.floor(Math.random() * 255);
+                    const G = Math.floor(Math.random() * 255);
+                    const B = Math.floor(Math.random() * 255);
+                    e.target.style.backgroundColor = `rgb(${R}, ${G}, ${B})`;
+                });
+            }
             break;
         case "rgb(255, 255, 255)": // Erase
             for (const node of parent.childNodes) {
