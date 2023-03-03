@@ -50,13 +50,7 @@ function filterRGB(rgb) {
     if (!rgb) return;
 
     const rgbArr = rgb.split(',');
-    const intArr = [];
-
-    for (let i = 0; i < rgbArr.length; i++) {
-        const int = rgbArr[i].replace(/[a-z()]/ig, '');
-        intArr.push(parseInt(int));
-    }
-    return intArr;
+    return rgbArr.map((x) => parseInt(x.replace(/[a-z()]/ig, ''))); // This was a new change, I don't know if it works
 }
 
 
